@@ -1,0 +1,8 @@
+name: influencer_env
+dependencies:
+  - python=3.10
+  - pip
+  - psycopg2
+  - pandas
+  - faker
+  - python-dotenv

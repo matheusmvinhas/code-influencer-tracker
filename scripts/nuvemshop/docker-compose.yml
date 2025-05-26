@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  nuvemshop:
+    build: .
+    volumes:
+      - ./data:/app/data  # Monta o volume para persistir os dados
+      - ./.env:/app/.env  # Monta o arquivo .env
+    environment:
+      - PYTHONUNBUFFERED=1
