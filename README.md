@@ -29,8 +29,7 @@ Antes de começar, certifique-se de que você tem instalado:
 
 ```bash
 # 1. Clone o projeto
-git clone https://github.com/sua-conta/porygon.git
-cd porygon
+git clone https://github.com/sua-conta/code-influencer-tracker.git
 
 # 2. Ative o ambiente Conda e ingira os dados
 conda env create -f environment.yml
@@ -45,8 +44,8 @@ OU
 make up
 
 # 5. Recria o Volume do Metabase
-docker exec -i porygon-postgres-1 psql -U admin -d influencer_db -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
-docker exec -i porygon-postgres-1 psql -U admin -d influencer_db < metabase_pg_backup.sql
+docker exec -i code-influencer-tracker-postgres-1 psql -U admin -d influencer_db -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
+docker exec -i code-influencer-tracker-postgres-1 psql -U admin -d influencer_db < metabase_pg_backup.sql
 
 OU 
 
@@ -89,14 +88,14 @@ Abra [http://localhost:3000](http://localhost:3000) e siga o setup inicial. Use:
 ### 🔄 Exportar o volume `metabase_data` para compartilhamento:
 
 ```bash
-docker exec -t porygon-postgres-1 pg_dump -U admin influencer_db > metabase_pg_backup.sql
+docker exec -t code-influencer-tracker-postgres-1 pg_dump -U admin influencer_db > metabase_pg_backup.sql
 ```
 
 ### 📥 Importar o volume em outro ambiente:
 
 ```bash
-docker exec -i porygon-postgres-1 psql -U admin -d influencer_db -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
-docker exec -i porygon-postgres-1 psql -U admin -d influencer_db < metabase_pg_backup.sql
+docker exec -i code-influencer-tracker-postgres-1 psql -U admin -d influencer_db -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
+docker exec -i code-influencer-tracker-postgres-1 psql -U admin -d influencer_db < metabase_pg_backup.sql
 ```
 
 ## 🛠️ Comandos do Makefile
